@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    img{
+        width: 80px;
+        height: auto;
+    }
+
+    .links-left{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .links-right{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
