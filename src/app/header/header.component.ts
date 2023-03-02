@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -6,30 +7,38 @@ import { Component, HostListener, OnInit } from '@angular/core';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    hovered: boolean = false;
-    onTop: boolean = true;
-    display: boolean = this.hovered || this.onTop;
-    constructor() {}
+    hoveredHeader: boolean = false;
+    onTopOfPage: boolean = true;
+    displayHeader: boolean = this.hoveredHeader || this.onTopOfPage;
+    constructor(private router: Router) {}
 
     ngOnInit(): void {}
 
+    updateDisplay() {
+        this.displayHeader = !this.onTopOfPage || this.hoveredHeader;
+    }
+
     @HostListener('window:scroll', ['$event'])
     onWindowScroll() {
-        console.log('hovered : ', this.hovered);
-        console.log('onTop : ', this.onTop);
-        console.log('display : ', this.display);
         if (window.pageYOffset > 0) {
-            this.onTop = false;
+            this.onTopOfPage = false;
         } else {
-            this.onTop = true;
+            this.onTopOfPage = true;
         }
+        this.updateDisplay();
     }
 
     onMouseEnter() {
-        this.hovered = true;
+        this.hoveredHeader = true;
+        this.updateDisplay();
     }
 
     onMouseLeave() {
-        this.hovered = false;
+        this.hoveredHeader = false;
+        this.updateDisplay();
+    }
+
+    homePage() {
+        this.router.navigateByUrl('/');
     }
 }

@@ -1,12 +1,12 @@
-<header (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [ngClass]="{'hover-scroll': display}">
+<header (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [ngClass]="{'hover-scroll': displayHeader}">
     <div class="container">
         <div class="links-left">
-            <p>skateboards</p>
-            <p>tops</p>
-            <p>pantalons & joggers</p>
-            <p>accessories</p>
+            <a routerLink="/collections/skateboards">skateboards</a>
+            <a routerLink="/collections/pret-a-porter">tops</a>
+            <a routerLink="/collections/pantalons">pantalons & joggers</a>
+            <a routerLink="/collections/accessoires">accessoires</a>
         </div>
-        <div class="logo">
+        <div class="logo" (click)="homePage()">
             <img src="assets/images/logo-Biome.avif" alt="logo">
         </div>
         <div class="links-right">

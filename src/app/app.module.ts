@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingImageComponent } from './landing-image/landing-image.component';
+import { CollectionListComponent } from './collection-list/collection-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LandingImageComponent } from './landing-image/landing-image.component';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    LandingImageComponent
+    LandingImageComponent,
+    CollectionListComponent
   ],
   imports: [
     BrowserModule,

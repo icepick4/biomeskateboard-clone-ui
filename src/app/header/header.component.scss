@@ -18,12 +18,32 @@ header {
             height: auto;
         }
 
+        .logo {
+            cursor: pointer;
+        }
+
         .links-left {
             margin-left: 1.5rem;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             gap: 1.5rem;
+
+            a::after {
+                content: "";
+                display: block;
+                width: 0%;
+                height: 1px;
+                background-color: #000;
+                margin-top: 0.2rem;
+                transition: width 0.5s cubic-bezier(0.33, 0, 0, 1);
+            }
+
+            a:hover::after {
+                //from left to right
+                width: 100%;
+                transition: width 0.5s cubic-bezier(0.33, 0, 0, 1);
+            }
         }
 
         .links-right {
@@ -38,10 +58,11 @@ header {
                 filter: invert(100%);
             }
         }
-        p {
+        a {
             color: #fff;
             letter-spacing: -0.005em;
             font-size: 17px;
+            text-decoration: none;
         }
     }
 }
@@ -50,7 +71,7 @@ header {
     background-color: #fff;
     transition: background-color 0.5s cubic-bezier(0.33, 0, 0, 1);
     .container {
-        p {
+        a {
             color: #000;
         }
         .links-right {
