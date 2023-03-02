@@ -1,4 +1,4 @@
-<header>
+<header (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [ngClass]="{'hover-scroll': display}">
     <div class="container">
         <div class="links-left">
             <p>skateboards</p>
@@ -11,8 +11,8 @@
         </div>
         <div class="links-right">
             <img src="assets/images/icons/search.svg" alt="search">
-            <p>account</p>
-            <p>cart</p>
+            <img src="assets/images/icons/account.svg" alt="account">
+            <img src="assets/images/icons/cart.svg" alt="cart">
         </div>
     </div>
 </header>
