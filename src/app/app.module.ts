@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingImageComponent } from './landing-image/landing-image.component';
 import { CollectionListComponent } from './collection-list/collection-list.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CollectionListComponent } from './collection-list/collection-list.compo
     HeaderComponent,
     FooterComponent,
     LandingImageComponent,
-    CollectionListComponent
+    CollectionListComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

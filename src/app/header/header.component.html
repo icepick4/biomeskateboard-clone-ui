@@ -1,13 +1,24 @@
-<header (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [ngClass]="{'hover-scroll': displayHeader}">
+<header (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [ngClass]="{'hover-scroll': updateDisplay()}">
     <div class="container">
         <div class="links-left">
-            <a routerLink="/collections/skateboards">skateboards</a>
-            <a routerLink="/collections/pret-a-porter">tops</a>
-            <a routerLink="/collections/pantalons">pantalons & joggers</a>
-            <a routerLink="/collections/accessoires">accessoires</a>
+            <a routerLink="/collections/skateboards">
+                <span class="hover-underline">skateboards</span>
+            </a>
+            <a routerLink="/collections/pret-a-porter">
+                <span class="hover-underline">tops</span>
+            </a>
+            <a routerLink="/collections/pantalons">
+                <span class="hover-underline">pantalons & joggers</span>
+            </a>
+            <a routerLink="/collections/accessoires">
+                <span class="hover-underline">accessoires</span>
+            </a>
+            <div class="menu" (click)="toggleMenu()">
+                <img [src]="menuImage" alt="menu">
+            </div>
         </div>
         <div class="logo" (click)="homePage()">
-            <img src="assets/images/logo-Biome.avif" alt="logo">
+            <img src="assets/images/logo-Biome.avif" alt="logo" id="mainImage">
         </div>
         <div class="links-right">
             <img src="assets/images/icons/search.svg" alt="search">
@@ -16,3 +27,7 @@
         </div>
     </div>
 </header>
+
+<div *ngIf="displayMenu">
+    <app-menu></app-menu>
+</div>

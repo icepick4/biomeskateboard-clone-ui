@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
     hoveredHeader: boolean = false;
     onTopOfPage: boolean = true;
-    displayHeader: boolean = this.hoveredHeader || this.onTopOfPage;
+    displayHeader: boolean = this.updateDisplay();
+    displayMenu: boolean = false;
+    menuImage: string = 'assets/images/icons/menu.svg';
     constructor(private router: Router) {}
 
     ngOnInit(): void {}
 
     updateDisplay() {
-        this.displayHeader = !this.onTopOfPage || this.hoveredHeader;
+        return !this.onTopOfPage || this.hoveredHeader;
     }
 
     @HostListener('window:scroll', ['$event'])
@@ -25,20 +27,26 @@ export class HeaderComponent implements OnInit {
         } else {
             this.onTopOfPage = true;
         }
-        this.updateDisplay();
     }
 
     onMouseEnter() {
         this.hoveredHeader = true;
-        this.updateDisplay();
     }
 
     onMouseLeave() {
         this.hoveredHeader = false;
-        this.updateDisplay();
     }
 
     homePage() {
         this.router.navigateByUrl('/');
+    }
+
+    toggleMenu() {
+        this.displayMenu = !this.displayMenu;
+        if (this.displayMenu) {
+            this.menuImage = 'assets/images/icons/close.svg';
+        } else {
+            this.menuImage = 'assets/images/icons/menu.svg';
+        }
     }
 }

@@ -1,6 +1,7 @@
-body{
+body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 @font-face {
@@ -8,6 +9,6 @@ body{
     src: url(./assets/fonts/Dosis-VariableFont_wght.ttf);
 }
 
-*{
+* {
     font-family: Dosis, sans-serif;
 }
